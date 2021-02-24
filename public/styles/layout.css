@@ -18,8 +18,69 @@ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: 'Source Sans Pro';
+  margin-top: 120px;
+
+}
+
+main {
+  width: 90%;
+  margin: auto;
+  background-color: #f4f1ec;
+
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+
+ /* tweetContainer section styles */
+
+ #tweetContainer{
+   border: solid 2px #545149;
+   margin-top: 50px;
+   margin-bottom: 50px;
+   padding: 10px
+ }
+
+
+
+ #tweetContainer header{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #f4f1ec;
+  height: 100px;
+ }
+ #tweetContainer .mention{
+  color: #f4f1ec;
+  padding-left: 70%;
+  padding-right: 2%;
+}
+
+#tweetContainer div.userIcon{
+  font-size: 75px;
+  font-weight: 300;
+  padding: 2px;
+  color: #72706a;
+}
+
+
+ #tweetContainer footer{
+   display: flex;
+   justify-content: space-between;
+   font-size: .65em;
+   border-top: solid 2px #545149;
+ }
+
+ #tweetContainer:hover{
+   font-weight: bold;
+   box-shadow: 5px 10px rgb(148, 170, 209);
+ }
+
+
+/*
+ #tweetContainer .mention:hover{
+  color: rgb(148, 170, 209);
+} */
