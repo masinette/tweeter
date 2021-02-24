@@ -10,13 +10,43 @@
 
 
 
-$(document).ready(function () {
+$(document).ready(function() {
 
   console.log("hello");
 
-  const createTweetElement = function (tweet) {
-    const $tweet = $(`<article class="tweet">Hello world</article>`);
-    // alert("HELLO");
+  const createTweetElement = function(tweetObj) {
+    const $tweet = $(`<article class = "tweet">
+
+    <header>
+      
+      <div class = "userIcon">
+        <p><img src = "${tweetObj.user.avatars}"></i></p>
+      </div>
+      <div>
+        <p>${tweetObj.user.name}</p>
+      </div>
+      
+      <div class="mention">
+        <p>${tweetObj.user.handle}</p>
+      </div>
+
+    </header>
+
+      <p>${tweetObj.content.text}</p>
+    <footer>
+      <div>
+      <p>${tweetObj.created_at} days ago</p>
+     </div>
+      <div>
+        <p>
+          <i class="fas fa-flag"></i>
+          <i class="fas fa-retweet"></i>
+          <i class="fas fa-heart"></i>
+        </p>
+      </div>
+    </footer>
+
+    </article>`);
 
     return $tweet;
   }
@@ -25,8 +55,7 @@ $(document).ready(function () {
 
 
 
-
-
+//  test
   const tweetData = {
     "user": {
       "name": "Newton",
@@ -39,8 +68,11 @@ $(document).ready(function () {
     "created_at": 1461116232227
   }
   const $tweet = createTweetElement(tweetData);
+  console.log("TWEETDATA",$tweet);
+  $('#tweetContainer').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
 
+//  test
 
 
 
