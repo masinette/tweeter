@@ -12,8 +12,6 @@
 
 $(document).ready(function () {
 
-  console.log("hello");
-
   const createTweetElement = function (tweetObj) {
     const $tweet = $(`<article class = "tweet">
 
@@ -49,11 +47,7 @@ $(document).ready(function () {
     </article>`);
 
     return $tweet;
-  }
-
-
-
-
+  };
 
   //  test data
   // Fake data taken from initial-tweets.json
@@ -85,9 +79,7 @@ $(document).ready(function () {
 
   //  test
 
-
-
-  //taking in an array of tweet objects and then appending each one to the #tweets-container
+  //take in an array of tweet objects and then appending each one to the #tweets-container
   const renderTweets = function (tweetObjArr) {
     //loop through tweets
     for (let tweetObj of tweetObjArr) {
@@ -96,9 +88,60 @@ $(document).ready(function () {
       //append returned $tweet to #tweetContainer
       $('#tweetContainer').append($tweet);
     }
-  }
+  };
   renderTweets(data);
 
+  // ------ form $ -------//
+  $('form').on('submit', function (event) {
+    //prevent default form submission behaviour
+    event.preventDefault();
+    //turn form data into query string (so the data format is readable to this server)
+    const tweetEntry = $(this).serialize();
+    console.log(tweetEntry);
 
+    //send AJAX POST request to send form data to the server
+    const url = '/tweets';
+    $.ajax({
+      url,
+      method: 'POST',
+      data: tweetEntry
+    }).done(() => {
+      console.log('ajax callback called');
+    }).fail(err => {
+      console.log('ajax error caught');
+      console.log(err);
+    });
+    
+
+
+
+
+
+
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // const $button = $('#load-more-posts');
+  // $button.on('click', function () {
+  //   console.log('Button clicked, performing ajax call...');
+  //   $.ajax('more-posts.html', { method: 'GET' })
+  //   .then(function (morePostsHtml) {
+  //     console.log('Success: ', morePostsHtml);
+  //     $button.replaceWith(morePostsHtml);
+  //   });
+  // });
 
 });
