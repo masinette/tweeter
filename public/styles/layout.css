@@ -80,7 +80,7 @@ main {
  }
 
 
-/*
- #.tweet .mention:hover{
+
+ .tweet header:hover .mention{
   color: rgb(148, 170, 209);
-} */
+}

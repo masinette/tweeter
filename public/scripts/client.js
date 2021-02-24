@@ -49,33 +49,9 @@ $(document).ready(function () {
     return $tweet;
   };
 
+  // const data =
   //  test data
   // Fake data taken from initial-tweets.json
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd"
-      },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
 
   //  test
 
@@ -89,7 +65,7 @@ $(document).ready(function () {
       $('#tweetContainer').append($tweet);
     }
   };
-  renderTweets(data);
+  // renderTweets(data);
 
   // ------ form $ -------//
   $('form').on('submit', function (event) {
@@ -97,7 +73,7 @@ $(document).ready(function () {
     event.preventDefault();
     //turn form data into query string (so the data format is readable to this server)
     const tweetEntry = $(this).serialize();
-    console.log(tweetEntry);
+    // console.log(tweetEntry);
 
     //send AJAX POST request to send form data to the server
     const url = '/tweets';
@@ -106,22 +82,32 @@ $(document).ready(function () {
       method: 'POST',
       data: tweetEntry
     }).done(() => {
+      // createTweetElement()
       console.log('ajax callback called');
     }).fail(err => {
       console.log('ajax error caught');
       console.log(err);
     });
-    
+
+});
 
 
 
-
-
-
-  });
-
-
-
+    //fetch tweets from http://localhost:8080/tweets
+    const loadTweets = function () {
+      $.ajax({
+        url: 'http://localhost:8080/tweets',
+        method: 'GET'
+      }).done((result) => {
+        // console.log(result);
+        renderTweets(result);
+        console.log('ajax callback called');
+      }).fail(err => {
+        console.log('ajax error caught');
+        console.log(err);
+      });
+    };
+    loadTweets();
 
 
 
