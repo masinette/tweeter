@@ -35,9 +35,9 @@ main {
  */
 
 
- /* tweetContainer section styles */
+ /* .tweet section styles */
 
- #tweetContainer{
+ .tweet{
    border: solid 2px #545149;
    margin-top: 50px;
    margin-bottom: 50px;
@@ -46,20 +46,20 @@ main {
 
 
 
- #tweetContainer header{
+ .tweet header{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   background-color: #f4f1ec;
   height: 100px;
  }
- #tweetContainer .mention{
+ .tweet .mention{
   color: #f4f1ec;
   padding-left: 70%;
   padding-right: 2%;
 }
 
-#tweetContainer div.userIcon{
+.tweet div.userIcon{
   font-size: 75px;
   font-weight: 300;
   padding: 2px;
@@ -67,20 +67,20 @@ main {
 }
 
 
- #tweetContainer footer{
+ .tweet footer{
    display: flex;
    justify-content: space-between;
    font-size: .65em;
    border-top: solid 2px #545149;
  }
 
- #tweetContainer:hover{
+ .tweet:hover{
    font-weight: bold;
    box-shadow: 5px 10px rgb(148, 170, 209);
  }
 
 
 /*
- #tweetContainer .mention:hover{
+ #.tweet .mention:hover{
   color: rgb(148, 170, 209);
 } */

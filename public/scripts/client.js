@@ -10,11 +10,11 @@
 
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   console.log("hello");
 
-  const createTweetElement = function(tweetObj) {
+  const createTweetElement = function (tweetObj) {
     const $tweet = $(`<article class = "tweet">
 
     <header>
@@ -55,27 +55,49 @@ $(document).ready(function() {
 
 
 
-//  test
-  const tweetData = {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
+  //  test data
+  // Fake data taken from initial-tweets.json
+  const data = [
+    {
+      "user": {
+        "name": "Newton",
+        "avatars": "https://i.imgur.com/73hZDYK.png"
+        ,
+        "handle": "@SirIsaac"
+      },
+      "content": {
+        "text": "If I have seen further it is by standing on the shoulders of giants"
+      },
+      "created_at": 1461116232227
     },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
+    {
+      "user": {
+        "name": "Descartes",
+        "avatars": "https://i.imgur.com/nlhLi3I.png",
+        "handle": "@rd"
+      },
+      "content": {
+        "text": "Je pense , donc je suis"
+      },
+      "created_at": 1461113959088
+    }
+  ];
+
+  //  test
+
+
+
+  //taking in an array of tweet objects and then appending each one to the #tweets-container
+  const renderTweets = function (tweetObjArr) {
+    //loop through tweets
+    for (let tweetObj of tweetObjArr) {
+      //call createTweetElement for each tweet
+      const $tweet = createTweetElement(tweetObj);
+      //append returned $tweet to #tweetContainer
+      $('#tweetContainer').append($tweet);
+    }
   }
-  const $tweet = createTweetElement(tweetData);
-  console.log("TWEETDATA",$tweet);
-  $('#tweetContainer').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-
-
-//  test
-
-
-
+  renderTweets(data);
 
 
 
