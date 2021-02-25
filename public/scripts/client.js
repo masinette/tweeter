@@ -36,13 +36,16 @@ $(document).ready(function () {
 
     <header>
       
+    <div class = "userNameWrap">
       <div class = "userIcon">
         <div><img src = "${tweetObj.user.avatars}"></i></div>
       </div>
+
       <div>
         <p>${escape(tweetObj.user.name)}</p>
       </div>
-      
+    </div>
+
       <div class="mention">
         <p>${escape(tweetObj.user.handle)}</p>
       </div>

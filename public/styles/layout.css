@@ -44,15 +44,31 @@ main {
    padding: 10px
  }
 
- .tweet header{
+ .userNameWrap{
+  /* width: 100%; */
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
+  max-width: 60%;
+  align-items: center;
+
+  
+ }
+
+ .tweet header{
+   /* display: inline-block; */
+   width: 100%;
+   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: #f4f1ec;
   height: 100px;
  }
+
+
  .tweet .mention{
   color: #f4f1ec;
+  float: right;
   /* padding-left: 70%; */
   margin-right: 2%;
   /* justify-content: space-between; */
@@ -80,7 +96,10 @@ main {
 
  .tweet header:hover .mention{
   color: rgb(148, 170, 209);
+}
 
+.tweet p{
+  word-wrap: break-word;
 }
 
 
@@ -99,31 +118,41 @@ main {
 
 
 /* MEDIA QUERIES */
-@media only screen and (min-width: 768px) {
 
-}
+@media only screen and (min-width: 769px)  {
 
-
-@media only screen and (min-width: 1024px) {
   .wrapper{
     display: flex;
+    /* flex-direction: column; */
     width: 90%;
-    margin: 0 auto;
+    margin: auto;
     padding-top: 100px;
   }
 
   header{
-    margin-right: 15%;
+    /* padding-right: 15%; */
     flex-shrink: 2;
   }
   .container{
-    flex-shrink: 1;
+    /* flex-shrink: 1; */
+    padding-left: 10%;
+
   }
   .tweet{
     width: 60vw;  
-
+    /* flex-shrink: 1; */
   }
+  #tweet-Container{
+  /* margin-left: 10%; */
+  }
+  
+}
 
+@media only screen and (max-width: 768px) {
 
+  body nav{
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    background-color: #c29454;
+  }
 
 }
