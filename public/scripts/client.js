@@ -88,6 +88,7 @@ $(document).ready(function () {
         data: tweetEntry
       }).done(() => {
         // console.log("TWEETENTRY", tweetEntry.length)
+        loadTweets();
         console.log('ajax callback called');
       }).fail(err => {
         console.log('ajax error caught');
@@ -114,7 +115,7 @@ $(document).ready(function () {
       console.log(err);
     });
   };
-  loadTweets();
+  // loadTweets();
 
 
 
