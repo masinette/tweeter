@@ -19,6 +19,8 @@ $(document).ready(function () {
       $(this).siblings("div").children(".counter").css({ "color": "#545149" });
     }
     
+
+
   });
 
 

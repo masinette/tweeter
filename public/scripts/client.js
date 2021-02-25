@@ -49,12 +49,6 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  // const data =
-  //  test data
-  // Fake data taken from initial-tweets.json
-
-  //  test
-
   //take in an array of tweet objects and then appending each one to the #tweets-container
   const renderTweets = function (tweetObjArr) {
     //loop through tweets
@@ -62,7 +56,7 @@ $(document).ready(function () {
       //call createTweetElement for each tweet
       const $tweet = createTweetElement(tweetObj);
       //append returned $tweet to #tweetContainer
-      $('#tweetContainer').append($tweet);
+      $('#tweetContainer').prepend($tweet);
     }
   };
   // renderTweets(data);
@@ -73,41 +67,54 @@ $(document).ready(function () {
     event.preventDefault();
     //turn form data into query string (so the data format is readable to this server)
     const tweetEntry = $(this).serialize();
-    // console.log(tweetEntry);
-
-    //send AJAX POST request to send form data to the server
-    const url = '/tweets';
-    $.ajax({
-      url,
-      method: 'POST',
-      data: tweetEntry
-    }).done(() => {
-      // createTweetElement()
-      console.log('ajax callback called');
-    }).fail(err => {
-      console.log('ajax error caught');
-      console.log(err);
-    });
-
-});
 
 
+    console.log($(this).children('div').children('.counter').val());
 
-    //fetch tweets from http://localhost:8080/tweets
-    const loadTweets = function () {
+
+    //implement validation before sending form data to the server
+    //check: tweet message length, not too long or blank
+    if ($(this).children('div').children('.counter').val() < 0) {
+      //If validation is not met, notify the user by rendering a message on the page.
+      alert("Tweet is too long.");
+    } else if ($(this).children('div').children('.counter').val() > 139) {
+      alert("Tweet is empty");
+    } else {
+      //send AJAX POST request to send form data to the server
+      const url = '/tweets';
       $.ajax({
-        url: 'http://localhost:8080/tweets',
-        method: 'GET'
-      }).done((result) => {
-        // console.log(result);
-        renderTweets(result);
+        url,
+        method: 'POST',
+        data: tweetEntry
+      }).done(() => {
+        // console.log("TWEETENTRY", tweetEntry.length)
         console.log('ajax callback called');
       }).fail(err => {
         console.log('ajax error caught');
         console.log(err);
       });
-    };
-    loadTweets();
+
+    }
+
+  });
+
+
+
+  //fetch tweets from http://localhost:8080/tweets
+  const loadTweets = function () {
+    $.ajax({
+      url: 'http://localhost:8080/tweets',
+      method: 'GET'
+    }).done((result) => {
+      // console.log(result);
+      renderTweets(result);
+      console.log('ajax callback called');
+    }).fail(err => {
+      console.log('ajax error caught');
+      console.log(err);
+    });
+  };
+  loadTweets();
 
 
 
