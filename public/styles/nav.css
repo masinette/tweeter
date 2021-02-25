@@ -13,4 +13,14 @@ nav{
 }
 nav span{
   font-family: 'Bungee';
+  font-size: 30px;
+
+}
+nav div p{
+  text-align: center;
+  margin: 0px;
+}
+nav .fas{
+  color: #FF0000;
+
 }

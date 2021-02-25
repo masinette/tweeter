@@ -2,6 +2,7 @@
   /* color: rgb(54, 54, 54); */
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 .new-tweet button{
   font-family: 'Bungee';

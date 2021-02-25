@@ -12,11 +12,24 @@
 
 $(document).ready(function () {
 
-  const escape = function(str) {
+  const escape = function (str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
+
+  const days = function (ms) {
+    let day = 18683 - Math.floor(ms / (60 * 60 * 24 * 1000));
+    if (day > 1) {
+      return `${day} days ago`;
+    } else if (day === 1) {
+      return `${day} day ago`;
+    } else {
+      return `today`;
+    }
+  };
+  days(1614206440561);
+
 
   const createTweetElement = function (tweetObj) {
     const $tweet = $(`<article class = "tweet">
@@ -24,7 +37,7 @@ $(document).ready(function () {
     <header>
       
       <div class = "userIcon">
-        <p><img src = "${tweetObj.user.avatars}"></i></p>
+        <div><img src = "${tweetObj.user.avatars}"></i></div>
       </div>
       <div>
         <p>${escape(tweetObj.user.name)}</p>
@@ -39,7 +52,7 @@ $(document).ready(function () {
       <p>${escape(tweetObj.content.text)}</p>
     <footer>
       <div>
-      <p>${tweetObj.created_at} days ago</p>
+      <p>${days(tweetObj.created_at)}</p>
      </div>
       <div>
         <p>
@@ -85,20 +98,20 @@ $(document).ready(function () {
       //If validation is not met, notify the user by rendering a message on the page.
       // alert("Tweet is too long.");
       // $(this).siblings('.errorMessage').css({'display': 'inline-block'});
-      $(this).siblings('.errorMessage').slideUp(0, function() {});
+      $(this).siblings('.errorMessage').slideUp(0, function () { });
       $(this).siblings('.errorMessage').empty().append(`\u{26A0} ERROR: Tweet is too long. \u{26A0}`);
-      $(this).siblings('.errorMessage').slideDown("slow", function() {});
+      $(this).siblings('.errorMessage').slideDown("slow", function () { });
 
 
     } else if ($(this).children('div').children('.counter').val() > 139) {
       // alert("Tweet is empty");
-      $(this).siblings('.errorMessage').slideUp(0, function() {});
+      $(this).siblings('.errorMessage').slideUp(0, function () { });
       $(this).siblings('.errorMessage').empty().append(`\u{26A0} ERROR: Tweet is empty. \u{26A0}`);
-      $(this).siblings('.errorMessage').slideDown("slow", function() {});
+      $(this).siblings('.errorMessage').slideDown("slow", function () { });
 
     } else {
 
-      $(this).siblings('.errorMessage').slideUp(0, function() {});
+      $(this).siblings('.errorMessage').slideUp(0, function () { });
 
       //send AJAX POST request to send form data to the server
       const url = '/tweets';
@@ -107,6 +120,7 @@ $(document).ready(function () {
         method: 'POST',
         data: tweetEntry
       }).done(() => {
+        $(this).children("#tweet-text").empty();
         // console.log("TWEETENTRY", tweetEntry.length)
         loadTweets();
         console.log('ajax callback called');
