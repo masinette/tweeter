@@ -75,17 +75,31 @@ $(document).ready(function () {
     const tweetEntry = $(this).serialize();
 
 
-    console.log($(this).children('div').children('.counter').val());
+    // console.log($(this).children('div').children('.counter').val());
+
 
 
     //implement validation before sending form data to the server
     //check: tweet message length, not too long or blank
     if ($(this).children('div').children('.counter').val() < 0) {
       //If validation is not met, notify the user by rendering a message on the page.
-      alert("Tweet is too long.");
+      // alert("Tweet is too long.");
+      // $(this).siblings('.errorMessage').css({'display': 'inline-block'});
+      $(this).siblings('.errorMessage').slideUp(0, function() {});
+      $(this).siblings('.errorMessage').empty().append(`\u{26A0} ERROR: Tweet is too long. \u{26A0}`);
+      $(this).siblings('.errorMessage').slideDown("slow", function() {});
+
+
     } else if ($(this).children('div').children('.counter').val() > 139) {
-      alert("Tweet is empty");
+      // alert("Tweet is empty");
+      $(this).siblings('.errorMessage').slideUp(0, function() {});
+      $(this).siblings('.errorMessage').empty().append(`\u{26A0} ERROR: Tweet is empty. \u{26A0}`);
+      $(this).siblings('.errorMessage').slideDown("slow", function() {});
+
     } else {
+
+      $(this).siblings('.errorMessage').slideUp(0, function() {});
+
       //send AJAX POST request to send form data to the server
       const url = '/tweets';
       $.ajax({

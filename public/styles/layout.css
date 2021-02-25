@@ -81,3 +81,13 @@ main {
  .tweet header:hover .mention{
   color: rgb(148, 170, 209);
 }
+
+/* ERROR MESSAGE STYLES */
+
+.errorMessage{
+  border: solid 2px #FF0000;
+  padding: 5px;
+  margin: 10px;
+  color: #FF0000;
+  display: none;
+}
