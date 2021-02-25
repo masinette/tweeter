@@ -12,6 +12,12 @@
 
 $(document).ready(function () {
 
+  const escape = function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   const createTweetElement = function (tweetObj) {
     const $tweet = $(`<article class = "tweet">
 
@@ -21,16 +27,16 @@ $(document).ready(function () {
         <p><img src = "${tweetObj.user.avatars}"></i></p>
       </div>
       <div>
-        <p>${tweetObj.user.name}</p>
+        <p>${escape(tweetObj.user.name)}</p>
       </div>
       
       <div class="mention">
-        <p>${tweetObj.user.handle}</p>
+        <p>${escape(tweetObj.user.handle)}</p>
       </div>
 
     </header>
 
-      <p>${tweetObj.content.text}</p>
+      <p>${escape(tweetObj.content.text)}</p>
     <footer>
       <div>
       <p>${tweetObj.created_at} days ago</p>
