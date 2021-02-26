@@ -119,13 +119,14 @@ main {
 
 /* MEDIA QUERIES */
 
-@media only screen and (min-width: 769px)  {
+@media only screen and (min-width: 1025px)  {
 
   .wrapper{
     display: flex;
     /* flex-direction: column; */
     width: 90%;
     margin: auto;
+
     padding-top: 100px;
   }
 
@@ -148,7 +149,7 @@ main {
   
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
 
   body nav{
     background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
