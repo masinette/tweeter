@@ -66,14 +66,6 @@ main {
  }
 
 
- .tweet .mention{
-  color: #f4f1ec;
-  float: right;
-  /* padding-left: 70%; */
-  margin-right: 2%;
-  /* justify-content: space-between; */
-}
-
 .tweet div.userIcon{
   font-size: 75px;
   font-weight: 300;
@@ -94,9 +86,25 @@ main {
    box-shadow: 5px 10px rgb(148, 170, 209);
  }
 
- .tweet header:hover .mention{
+ .tweet .handle{
   color: rgb(148, 170, 209);
 }
+
+.socialLinks{
+  padding-top: 15px;
+}
+
+.hidden{
+/* display: none; */
+opacity: 0.0;
+}
+
+.tweet:hover .hidden{
+  /* display: block; */
+  opacity: 1.0;
+}
+
+
 
 .tweet p{
   word-wrap: break-word;

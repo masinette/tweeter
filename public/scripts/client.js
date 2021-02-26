@@ -46,8 +46,8 @@ $(document).ready(function () {
       </div>
     </div>
 
-      <div class="mention">
-        <p>${escape(tweetObj.user.handle)}</p>
+      <div>
+        <p class = "handle">${escape(tweetObj.user.handle)}</p>
       </div>
 
     </header>
@@ -57,12 +57,12 @@ $(document).ready(function () {
       <div>
       <p>${days(tweetObj.created_at)}</p>
      </div>
-      <div>
-        <p>
+      <div class = "socialLinks">
+        <div class = "hidden">
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
           <i class="fas fa-heart"></i>
-        </p>
+        </div>
       </div>
     </footer>
 
