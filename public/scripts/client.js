@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
   const escape = function (str) {
@@ -26,7 +27,7 @@ $(document).ready(function () {
   };
 
   //create a tweet element from data returned from user input
-  const createTweetElement = function (tweetObj) {
+  const createTweetElement = function(tweetObj) {
     const $tweet = $(`<article class = "tweet">
 
     <header>
@@ -67,7 +68,7 @@ $(document).ready(function () {
   };
 
   //take in an array of tweet objects and then appending each one to the #tweets-container
-  const renderTweets = function (tweetObjArr) {
+  const renderTweets = function(tweetObjArr) {
     //loop through tweets
     for (let tweetObj of tweetObjArr) {
       //call createTweetElement for each tweet
@@ -94,7 +95,6 @@ $(document).ready(function () {
     //check: tweet message length, not too long or blank
     if ($(this).children('div').children('.counter').val() < 0) {
       //If validation is not met, notify the user by rendering a message on the page.
-      // alert("Tweet is too long.");
       // $(this).siblings('.errorMessage').css({'display': 'inline-block'});
       $(this).siblings('.errorMessage').slideUp(0, function () { });
       $(this).siblings('.errorMessage').empty().append(`\u{26A0} ERROR: Tweet is too long. \u{26A0}`);
@@ -119,7 +119,6 @@ $(document).ready(function () {
         data: tweetEntry
       }).done(() => {
         $(this).children("textarea").val("");
-        // console.log("TWEETENTRY", tweetEntry.length)
         ($(this).children('div').children('.counter').val(140));
         loadTweets();
         console.log('ajax callback called');
@@ -127,11 +126,8 @@ $(document).ready(function () {
         console.log('ajax error caught');
         console.log(err);
       });
-
     }
-
   });
-
 
 
   //fetch tweets from http://localhost:8080/tweets
