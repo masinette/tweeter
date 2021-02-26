@@ -20,7 +20,11 @@ nav div p{
   text-align: center;
   margin: 0px;
 }
+nav button {
+  background-color: #4056A1;
+  border-color: #4056A1;
+  border-style: none;
+}
 nav .fas{
   color: #FF0000;
-
 }
