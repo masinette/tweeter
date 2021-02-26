@@ -116,6 +116,9 @@ $(document).ready(function () {
 
       $(this).siblings('.errorMessage').slideUp(0, function () { });
 
+      // $(this).children("#tweet-text").css({'color':'purple'});
+
+
       //send AJAX POST request to send form data to the server
       const url = '/tweets';
       $.ajax({
@@ -123,8 +126,9 @@ $(document).ready(function () {
         method: 'POST',
         data: tweetEntry
       }).done(() => {
-        $(this).children("#tweet-text").empty();
+        $(this).children("textarea").val("");
         // console.log("TWEETENTRY", tweetEntry.length)
+        ($(this).children('div').children('.counter').val(140));
         loadTweets();
         console.log('ajax callback called');
       }).fail(err => {
