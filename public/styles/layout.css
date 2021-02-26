@@ -35,7 +35,7 @@ main {
  */
 
 
- /* .tweet section styles */
+ /* .tweet SECTION STYLES */
 
  .tweet{
    border: solid 2px #545149;
@@ -52,7 +52,6 @@ main {
  }
 
  .tweet header{
-   /* display: inline-block; */
    width: 100%;
    text-align: center;
   display: flex;
@@ -90,12 +89,10 @@ main {
 }
 
 .hidden{
-/* display: none; */
 opacity: 0.0;
 }
 
 .tweet:hover .hidden{
-  /* display: block; */
   opacity: 1.0;
 }
 
@@ -124,30 +121,21 @@ opacity: 0.0;
 
   .wrapper{
     display: flex;
-    /* flex-direction: column; */
     width: 90%;
     margin: auto;
-
     padding-top: 100px;
   }
 
   header{
-    /* padding-right: 15%; */
     flex-shrink: 2;
   }
   .container{
-    /* flex-shrink: 1; */
     padding-left: 10%;
-
   }
   .tweet{
     width: 60vw;  
-    /* flex-shrink: 1; */
   }
-  #tweet-Container{
-  /* margin-left: 10%; */
-  }
-  
+
 }
 
 @media only screen and (max-width: 1024px) {
