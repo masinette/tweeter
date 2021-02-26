@@ -32,4 +32,3 @@ const days = function(ms) {
 
 
 
-module.exports = days;
