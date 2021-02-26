@@ -1,15 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-
-//createTweetElement that takes in a tweet object and is responsible for returning
-//a tweet <article> element containing the entire HTML structure of the tweet.
-
-
-
 $(document).ready(function () {
 
   const escape = function (str) {
@@ -18,34 +6,26 @@ $(document).ready(function () {
     return div.innerHTML;
   };
 
-
+  //convert epoch time to day and minutes
   const days = function(ms) {
-    // let day = 18683 - Math.floor(ms / (60 * 60 * 24 * 1000));
-  
+
     let now = Date.now() - ms;
-    
-    console.log("NOW",now)
-  
   
     let day = Math.floor(now / (60 * 60 * 24 * 1000));
-    let minutes = Math.floor(now / (60000))
+    let minutes = Math.floor(now / (60000));
   
-    console.log("DAY", day);
-    console.log("minutes", minutes)
     if (day > 1) {
       return `${day} days ago`;
     } else if (day === 1) {
       return `${day} day ago`;
-    } 
-    else if (day < 1) {
+    } else if (day < 1) {
       return `${minutes} minute(s) ago`;
-    } 
-    else {
+    } else {
       return `today`;
     }
   };
 
-
+  //create a tweet element from data returned from user input
   const createTweetElement = function (tweetObj) {
     const $tweet = $(`<article class = "tweet">
 
@@ -96,9 +76,8 @@ $(document).ready(function () {
       $('#tweetContainer').prepend($tweet);
     }
   };
-  // renderTweets(data);
 
-  //toggle tweet entry form with compose button
+  //toggle tweet entry form with compose button in nav bar
   $('.compose').on('click', function (event) {
     $('form').slideToggle("slow", function (){});
   });
@@ -122,8 +101,8 @@ $(document).ready(function () {
       $(this).siblings('.errorMessage').slideDown("slow", function () { });
 
 
+    //if form is empty, prompt user to enter a tweet
     } else if ($(this).children('div').children('.counter').val() > 139) {
-      // alert("Tweet is empty");
       $(this).siblings('.errorMessage').slideUp(0, function () { });
       $(this).siblings('.errorMessage').empty().append(`\u{26A0} ERROR: Tweet is empty. \u{26A0}`);
       $(this).siblings('.errorMessage').slideDown("slow", function () { });
@@ -131,9 +110,6 @@ $(document).ready(function () {
     } else {
 
       $(this).siblings('.errorMessage').slideUp(0, function () { });
-
-      // $(this).children("#tweet-text").css({'color':'purple'});
-
 
       //send AJAX POST request to send form data to the server
       const url = '/tweets';
@@ -172,7 +148,6 @@ $(document).ready(function () {
       console.log(err);
     });
   };
-  // loadTweets();
 
 
 

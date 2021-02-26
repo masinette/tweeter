@@ -45,13 +45,10 @@ main {
  }
 
  .userNameWrap{
-  /* width: 100%; */
   display: flex;
   flex-direction: row;
   max-width: 60%;
-  align-items: center;
-
-  
+  align-items: center;  
  }
 
  .tweet header{
@@ -65,13 +62,11 @@ main {
   height: 100px;
  }
 
-
 .tweet div.userIcon{
   font-size: 75px;
   font-weight: 300;
   padding: 2px;
   color: #72706a;
-  /* justify-self: flex-start; */
 }
 
  .tweet footer{
@@ -103,8 +98,6 @@ opacity: 0.0;
   /* display: block; */
   opacity: 1.0;
 }
-
-
 
 .tweet p{
   word-wrap: break-word;
